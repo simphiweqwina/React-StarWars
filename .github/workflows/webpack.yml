@@ -30,3 +30,8 @@ jobs:
     - name: UnitTest
       run: |
         npm run test:coverage
+
+    - name: TestUI
+      run: |
+        npm run start
+        npx cypress run
