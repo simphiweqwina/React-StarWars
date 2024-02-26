@@ -8,16 +8,16 @@ const createEsbuildPlugin =
 module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
-      const bundler = createBundler({
-        plugins: [createEsbuildPlugin(config)],
-      });
-
-      on("file:preprocessor", bundler);
-      await addCucumberPreprocessorPlugin(on, config);
-
+      const cucumber = require('cypress-cucumber-preprocessor').default
+      const browserify = require('@cypress/browserify-preprocessor');
+      const options = {
+        ...browserify.defaultOptions,
+        typescript: require.resolve('typescript'),
+      };
+      on('file:preprocessor', cucumber(options));
       return config;
     },
-    specPattern: "cypress/e2e/features/*.feature",
+    specPattern: "cypress/e2e/feature/*.feature",
     baseUrl: "http://localhost:3000/",
     chromeWebSecurity: false,
   },
