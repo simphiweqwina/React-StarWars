@@ -33,5 +33,4 @@ jobs:
 
     - name: TestUI
       run: |
-        npm run start
-        npx cypress run
+        npm run e2e
