@@ -31,6 +31,6 @@ jobs:
       run: |
         npm run test:coverage
 
-    - name: TestUI
+    - name: API_plus_UI
       run: |
         npm run e2e
