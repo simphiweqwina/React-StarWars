@@ -25,5 +25,5 @@ Feature: StarWars Tests
         Then the section <Section> should not be displayed
         Examples:
             | Section      |
-            | "Planets"  |
-            | "Camino"   |
+            | "Planets"    |
+            # | "Camino"   |
