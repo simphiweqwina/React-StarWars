@@ -17,14 +17,14 @@ Then("the count shall be {string}", (number:number) => {
 
 
 Then("the director of movie number {string} shall be {string}", (index:string,directorName:string) => {
-	const movieDetails:any = responseData[+index];
+	const movieDetails:any = responseData[+index-1];
     expect(movieDetails["director"]).equals(directorName)
 
 });
 
 
 Then("the producer of movie number {string} shall NOT be {string}", (index:string,producerName:string) => {
-	const movieDetails:any = responseData[+index];
+	const movieDetails:any = responseData[+index-1];
     expect(movieDetails["producer"]).not.equal(producerName)
 });
 
